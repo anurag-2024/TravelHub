@@ -1,0 +1,24 @@
+.thank__you span i{
+    font-size: 10rem;
+    color: rgb(6, 163, 6);
+}
+.thank__you h1{
+    font-size: 3.6rem;
+    font-family: var(--subtitle-font-name);
+}
+@media screen and (max-width:576px) {
+    .thank__you span i{
+        font-size: 6rem;
+    }
+    .thank__you h1{
+        font-size: 2.6rem;
+    }
+    .thank__you h3{
+        font-size: 1.2rem;
+    }
+    .thank__you .thankbutton {
+        font-size: 1rem;
+        width: 60% !important;
+    }
+    
+}

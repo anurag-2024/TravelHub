@@ -1,0 +1,113 @@
+/* Add this at the end of your CSS file */
+.subtitle {
+  margin-left: 8rem;
+  margin-top: 3rem;
+}
+.glass {
+  border-radius: 10px;
+  padding: 30px;
+  backdrop-filter: blur(1px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.profile_img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.textbox {
+  border: 0;
+  padding: 1rem 1.25rem;
+  border-radius: 1rem;
+  align-self: center;
+  width: 100%;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  font-size: 1.125rem;
+  outline: none;
+}
+
+.textbox input {
+  border-radius: 10px;
+  padding: 1rem; /* Adjusted padding */
+}
+
+.textbox input:focus {
+  outline: none;
+  border: 1px solid #264bee;
+  border-radius: 5px;
+}
+
+.button {
+  border: 1px solid #6879c6;
+  background-color: #6879c6;
+  width: 50%;
+  padding: 1rem 0;
+  border-radius: 0.5rem;
+  color: #f4f5f7;
+  font-size: 1.25rem;
+}
+
+.btn:hover {
+  background-color: rgb(62, 178, 223);
+  color: white;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.bookings{
+   margin-left: 8rem;
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-bottom: 20rem;
+}
+
+.table th {
+  background-color: #f2f2f2;
+  padding: 10px;
+  text-align: left;
+}
+.table td, .table th {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.table tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #fff;
+}
+.container.no-bookings {
+  margin-top: 5rem;
+  margin-bottom: 10rem;
+  padding: 10px;
+  font-size: 2.5rem;
+  font-weight: 800;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 576px) {
+  .subtitle {
+    margin-left: 1rem;
+    margin-top: 3rem;
+  }
+  .bookings{
+    margin-left: 1rem;
+   margin-top: 3rem;
+   margin-bottom: 4rem;
+ }
+}

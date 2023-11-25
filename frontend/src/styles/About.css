@@ -1,0 +1,23 @@
+/* About.css */
+
+.about-section {
+    padding: 80px 0;
+    background-color: #f8f9fa; /* Light background color */
+    background: linear-gradient(rgba(204, 205, 205, 0),rgba(158, 154, 207, 0.164))
+  }
+  
+  .about-title {
+    font-size: 2.5rem;
+    color: #343a40; /* Dark text color */
+    margin-bottom: 30px;
+  }
+  
+  .about-description {
+    font-size: 1.1rem;
+    color: #495057; /* Medium-dark text color */
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  /* Add any additional styles or modifications as needed */
+  

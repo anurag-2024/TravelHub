@@ -28,11 +28,13 @@ app.disable("x-powered-by");
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const CorsOptions={
-    origin:true,
-    credentials:true
-}
-app.use(cors(CorsOptions));
+app.use(cors(
+    {
+        origin:["https://travel-hub-ruddy.vercel.app"],
+        methods:["GET","POST","PUT","DELETE"],
+        credentials:true
+    }
+));
 
 
 app.get("/",(req,res)=>{

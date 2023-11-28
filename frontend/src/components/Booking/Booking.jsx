@@ -35,6 +35,8 @@ const Booking = ({ tour, avgRating }) => {
     const ServiceFee = 10;
     const totalPrice = Number(price) * Number(credentials.guestSize);
     const totalAmount = Number(price) * Number(credentials.guestSize) + Number(ServiceFee);
+
+    
     const handleClick = async (e) => {
         e.preventDefault();
         if (userId === "" || userId === undefined) {

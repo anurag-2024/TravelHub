@@ -113,8 +113,8 @@ export const makePayment=async(req,res)=>{
                 },
             ],
             mode:"payment",
-            success_url:`http://localhost:3000/confirmBooking/${req.body.bookingId}`,
-            cancel_url:"http://localhost:3000/failed",
+            success_url:`https://travel-hub-ruddy.vercel.app/confirmBooking/${req.body.bookingId}`,
+            cancel_url:"https://travel-hub-ruddy.vercel.app/failed",
         });
         res.json({id:session.id});
     }

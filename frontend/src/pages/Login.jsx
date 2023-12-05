@@ -19,6 +19,10 @@ const handleSubmit=async(e)=>{
   e.preventDefault();
   await axios.post(`${BASE_URL}/login`,{email:email||UserEmail,password:password||Password})
   .then(res=>{
+    if(res.status===401){
+      alert(res.data.message);
+      navigate("/confirmEmail")
+    }
     if(res.status===200){
       localStorage.setItem('token',res.data.token);
       localStorage.setItem('role',res.data.role);

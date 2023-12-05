@@ -3,7 +3,9 @@ import "../styles/Recovery.css";
 import axios from 'axios';
 import { BASE_URL } from '../utilis/config';
 import { useNavigate } from 'react-router-dom';
+import { useAuthStore } from '../Store/Store';
 const VerifyEmail = () => {
+    const setUserEmail = useAuthStore(state => state.setUserEmail);
     const navigate=useNavigate();
     const [email,setemail]=useState("");
     const handleSubmit= async(e)=>{
@@ -11,6 +13,7 @@ const VerifyEmail = () => {
         try{
             const res=await axios.post(`${BASE_URL}/verifyEmail`,{email});
             if(res.status===200){
+                setUserEmail(email);
                 navigate("/confirmEmail");
             }
         }

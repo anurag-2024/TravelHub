@@ -149,10 +149,8 @@ export async function resetPassword(req, res) {
 }
 export async function confirmEmail(req, res) {
     try {
-        const email = req.query.email;
-        const decodedEmail = decodeURIComponent(email);
-
-        User.findOne({ email: decodedEmail })
+        const email = req.body.email;
+        User.findOne({ email: email })
             .then(user => {
                 if (!user) {
                     return res.status(404).send({ message: "User not found" });

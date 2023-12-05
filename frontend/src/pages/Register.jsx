@@ -40,17 +40,7 @@ const handleSubmit = async(e)=>{
   setProfile(file);
   const res=await axios.post(`${BASE_URL}/register`,{username,email,password,file});
   if(res.status===201){
-    const decodedEmail = encodeURIComponent(email);
-    const response=await  axios.get(`${BASE_URL}/generateOTP`,{params:{email:decodedEmail}});
-    if(response.status===201){
-      let text=`Your Email Verification OTP is ${response?.data?.code}`;
-      const username="User";
-      const decodedEmail = encodeURIComponent(email);
-      const res=await axios.post(`${BASE_URL}/registerMail`,{username,email:decodedEmail,text,subject:"Email Verification"});
-      if(res.status===200){
-        navigate('/confirmEmail');
-      }
-    }
+    navigate('/confirmEmail');
   }
   else{
     navigate('/register');

@@ -84,6 +84,22 @@ export const verifyEmail = async (req, res, next) => {
         res.status(500).json({ message: err.message })
     }
 }
+
+export const EmailVerify = async (req, res) => {
+    try{
+       const email=req.body.email;
+       User.findOne({email:email})
+       .then(user=>{
+        if(!user){
+            return res.status(404).send({message:"User not found"});
+        }
+        return res.status(200).send({message:"User found"});
+       })
+    }
+    catch(err){
+        res.status(500).json({ message: "Some Error ocurred" })
+    }
+}
 export function localVariables(req, res, next) {
     req.app.locals = {
         OTP: null,

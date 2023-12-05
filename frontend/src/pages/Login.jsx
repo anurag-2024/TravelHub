@@ -19,11 +19,7 @@ const handleSubmit=async(e)=>{
   e.preventDefault();
   try{
     const res= await axios.post(`${BASE_URL}/login`,{email:email||UserEmail,password:password||Password})
-    if(res.status===401){
-      alert(res.data.message);
-      navigate("/confirmEmail")
-    }
-    else if(res.status===200){
+    if(res.status===200){
       localStorage.setItem('token',res.data.token);
       localStorage.setItem('role',res.data.role);
       navigate('/');
@@ -58,6 +54,7 @@ const handleSubmit=async(e)=>{
                 <Button className='btn secondary__btn auth__btn' type='submit'>Login</Button>
               </Form>
               <p>Forgot Password? <Link to="/recovery">Recover Now</Link></p>
+              <p>Email Not Verified?<Link to="/verify-email">Verify</Link></p>
               <p>Don't have an account? <Link to="/register">Create</Link></p>
             </div>
            </div>

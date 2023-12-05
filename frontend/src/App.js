@@ -15,6 +15,7 @@ import PageNotFound from "./pages/PageNotFound";
 import Failed from "./pages/Failed";
 import Profile from "./pages/Profile";
 import Recovery from "./pages/Recovery";
+import VerifyEmail from "./pages/VerifyEmail";
 import OTP from "./pages/OTP";
 import ResetPassword from "./pages/ResetPassword";
 import ConfirmBooking from "./pages/ConfirmBooking";
@@ -77,6 +78,7 @@ const ProtectResetPassword =({ children }) => {
         <Route path='/recovery' element={<><Header/><Recovery/><Footer/></>} />
         <Route path='/otp' element={<><Header/><OTP/><Footer/></>} />
         <Route path='/confirmEmail' element={<ConfirmEmail/>} />
+        <Route path='/verify-email' element={<><Header/><VerifyEmail/><Footer/></>} />
         <Route path='/resetPassword' element={<><Header/><ProtectResetPassword><ResetPassword/></ProtectResetPassword><Footer/></>} />
         <Route path='/confirmBooking/:bookingId' element={<ConfirmBooking/>} />
         <Route path='*' element={<PageNotFound/>} />

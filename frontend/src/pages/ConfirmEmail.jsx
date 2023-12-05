@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import '../styles/ConfirmEmail.css';
 import { useAuthStore } from '../Store/Store';
+import { BASE_URL } from '../utilis/config';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const ConfirmEmail = () => {
+    const navigate = useNavigate();
   const [confirmationCode, setConfirmationCode] = useState('');
   const UserEmail = useAuthStore(state => state.auth.userEmail);
   

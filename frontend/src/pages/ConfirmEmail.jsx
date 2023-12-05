@@ -15,14 +15,14 @@ const ConfirmEmail = () => {
      const res=await axios.get(`${BASE_URL}/verifyOTP`,{params:{code}});
     if(res.status===200){
         const decodedEmail = encodeURIComponent(UserEmail);
-        const response=await axios.post(`${BASE_URL}/confirmEmail`,{params:{email:decodedEmail}});
+        const response=await axios.put(`${BASE_URL}/confirmEmail`,{params:{email:decodedEmail}});
         if(response.status===200){
             alert("Email Verified Successfully");
             navigate('/login');
         }
     }
     else{
-       console.log(res);
+       console.log("Response",res);
        alert("Invalid OTP");
     }
   };

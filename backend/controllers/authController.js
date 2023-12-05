@@ -30,6 +30,9 @@ export const login = async (req, res) => {
         const { email, password } = req.body; 
         await User.findOne({ email })
             .then(async (user) => {
+                if(user.emailVerified==="false"){
+                    return res.status(401).json({message:"Please verify your email first"});
+                }
                 await bcrypt.compare(password, user.password)
                     .then((passwordCheck) => {
                         if (!passwordCheck) {
@@ -116,9 +119,7 @@ export async function resetPassword(req, res) {
         const password=req.body.password;
         console.log(email,password);
         try{
-            console.log("hiii");
             const decodedEmail = decodeURIComponent(email);
-            console.log("decode",decodedEmail);
              User.findOne({email:decodedEmail})
              .then(user=>{
                  bcrypt.hash(password,10)
@@ -140,6 +141,23 @@ export async function resetPassword(req, res) {
         catch(err){
             return res.status(404).send(err.message);
         }
+    }
+    catch(err){
+        return res.status(401).send(err.message);
+    }
+}
+
+export async function confirmEmail(req, res) {
+    try{
+        const email=req.query.email;
+        const decodedEmail = decodeURIComponent(email);
+        User.updateOne({email:decodedEmail},{emailVerified:"true"})
+        .then(user=>{
+            return res.status(200).send({user,message:"Email verified successfully"});
+        })
+        .catch(err=>{
+            return res.status(400).send(err.message);
+        })
     }
     catch(err){
         return res.status(401).send(err.message);

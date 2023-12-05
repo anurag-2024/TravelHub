@@ -1,5 +1,5 @@
 import {Router} from "express";
-import {register,login,verifyEmail,generateOTP,localVariables,verifyOTP,resetPassword,createResetSession} from "../controllers/authController.js";
+import {register,login,verifyEmail,generateOTP,localVariables,verifyOTP,resetPassword,createResetSession,confirmEmail} from "../controllers/authController.js";
 import sendMail from "../controllers/mailer.js";
 const router=Router();
 
@@ -17,4 +17,5 @@ router.get("/createResetSession",createResetSession)
 
 /**put routes */
 router.put("/resetPassword",resetPassword);
+router.put("/confirmEmail",confirmEmail);
 export default router;

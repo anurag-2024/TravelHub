@@ -15,7 +15,7 @@ const sendMail = (req, res) => {
         }
     }
     let transporter = nodemailer.createTransport(con);
-
+    
     let mailGenerator = new Mailgen({
         theme: "default",
         product: {

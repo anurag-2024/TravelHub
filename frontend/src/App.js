@@ -18,6 +18,7 @@ import Recovery from "./pages/Recovery";
 import OTP from "./pages/OTP";
 import ResetPassword from "./pages/ResetPassword";
 import ConfirmBooking from "./pages/ConfirmBooking";
+import ConfirmEmail from "./pages/ConfirmEmail";
 import { Navigate,BrowserRouter, Route, Routes } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "./utilis/config";
@@ -75,6 +76,7 @@ const ProtectResetPassword =({ children }) => {
         <Route path='/profile' element={<><Header/><ProtectUser><Profile/></ProtectUser><Footer/></>} />
         <Route path='/recovery' element={<><Header/><Recovery/><Footer/></>} />
         <Route path='/otp' element={<><Header/><OTP/><Footer/></>} />
+        <Route path='/confirmEmail' element={<ConfirmEmail/>} />
         <Route path='/resetPassword' element={<><Header/><ProtectResetPassword><ResetPassword/></ProtectResetPassword><Footer/></>} />
         <Route path='/confirmBooking/:bookingId' element={<ConfirmBooking/>} />
         <Route path='*' element={<PageNotFound/>} />

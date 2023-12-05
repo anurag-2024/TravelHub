@@ -1,0 +1,50 @@
+
+
+.confirm-email-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .confirm-email-content {
+    text-align: center;
+  }
+  
+  .confirm-email-content h2 {
+    color: #333;
+  }
+  
+  .confirm-email-content p {
+    color: #666;
+    margin-top: 10px;
+  }
+  
+  .confirmation-code-input {
+    margin-top: 20px;
+  }
+  
+  .confirmation-code-input label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .confirmation-code-input input {
+    width: 200px;
+    padding: 8px;
+    margin-right: 10px;
+  }
+  
+  .confirmation-code-input button {
+    padding: 8px 15px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .confirmation-code-input button:hover {
+    background-color: #45a049;
+  }
+  

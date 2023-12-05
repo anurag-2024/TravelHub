@@ -12,7 +12,7 @@ const ConfirmEmail = () => {
   
   const handleConfirm = async () => {
      const code=confirmationCode;
-     const res=await axios.get(`${BASE_URL}/verifyOTP`,{params:{code}});
+     const res=await axios.get(`${BASE_URL}/verifyOTP`,{params:{code:code}});
     if(res.status===200){
         const decodedEmail = encodeURIComponent(UserEmail);
         const response=await axios.put(`${BASE_URL}/confirmEmail`,{params:{email:decodedEmail}});

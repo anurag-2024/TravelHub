@@ -30,6 +30,7 @@ export const login = async (req, res) => {
         const { email, password } = req.body;
         await User.findOne({ email })
             .then(async (user) => {
+                if(!user) return res.status(404).json({ message: "User not found" });
                 if (user.emailVerified === "false") {
                     return res.status(401).json({ message: "Please verify your email first" });
                 }
@@ -146,26 +147,31 @@ export async function resetPassword(req, res) {
         return res.status(401).send(err.message);
     }
 }
-
 export async function confirmEmail(req, res) {
     try {
         const email = req.query.email;
         const decodedEmail = decodeURIComponent(email);
+
         User.findOne({ email: decodedEmail })
             .then(user => {
+                if (!user) {
+                    return res.status(404).send({ message: "User not found" });
+                }
                 if (user.emailVerified === "true") {
                     return res.status(200).send({ user, message: "Email already verified" });
                 }
-                User.updateOne({ email:user.email }, { emailVerified: "true" })
-                    .then(user => {
-                        return res.status(200).send({ user, message: "Email verified successfully" });
+                User.updateOne({ email: user.email }, { emailVerified: "true" })
+                    .then(updatedUser => {
+                        return res.status(200).send({ user: updatedUser, message: "Email verified successfully" });
                     })
                     .catch(err => {
                         return res.status(400).send(err.message);
-                    })
+                    });
             })
-    }
-    catch (err) {
+            .catch(err => {
+                return res.status(500).send(err.message);
+            });
+    } catch (err) {
         return res.status(401).send(err.message);
     }
 }

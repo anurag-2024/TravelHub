@@ -7,7 +7,6 @@ import Newsletter from '../shared/Newsletter';
 const SearchResultList = () => {
 
     const location=useLocation();
-    console.log("Location",location.state.tours);
     const [data]=useState(location.state.tours);
   return (
     <>

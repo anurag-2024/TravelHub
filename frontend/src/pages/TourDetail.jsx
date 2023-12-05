@@ -14,14 +14,12 @@ import { useAuthStore } from '../Store/Store.js';
 const TourDetail = () => {
   const navigate=useNavigate();
   const { id } = useParams();
-  console.log("id");
   var decode = null;
   const token = localStorage.getItem('token');
   if (token) {
     decode = jwtDecode(token);
   }
   const { data } = useFetch(`/gettour/${id}`);
-  console.log(data);
   const ReviewMsgRef = useRef("");
   const [tourRating, settourRating] = useState(null);
   const photo = data?.data?.photo;
@@ -58,7 +56,6 @@ const TourDetail = () => {
         "Content-type": "Application/json"
       })
         .then(res => {
-          console.log("Saved review", res);
           if (res.status === 201) {
             alert("Review Added Successfully");
             window.location.reload();
@@ -69,13 +66,11 @@ const TourDetail = () => {
         })
     }
   }
-  console.log("reviews", reviews);
   const [users, setusers] = useState(null);
   useEffect(() => {
     const fetchdata = async () => {
       const { data } = await axios.get(`${BASE_URL}/getallusers`);
       setusers(data?.data);
-      console.log("allusers", data);
     }
     fetchdata();
   },[]);

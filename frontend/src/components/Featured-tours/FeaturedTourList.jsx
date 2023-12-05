@@ -5,9 +5,7 @@ import useFetch from '../../hooks/useFetch';
 
 const FeaturedTourList = () => {
    const data=useFetch("/search/getFeaturedtour");
-   console.log("Featured",data);
    const featuredTours=data?.data?.tours;
-   console.log("Featured Tours",featuredTours);
   return (
    <>
     {

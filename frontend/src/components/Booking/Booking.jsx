@@ -62,7 +62,6 @@ const Booking = ({ tour, avgRating }) => {
                 }
             })
             .catch(err => {
-                console.log(err);
                 alert("Please Fill All the Fields");
             })
         }

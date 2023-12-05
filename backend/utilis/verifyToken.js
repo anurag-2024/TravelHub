@@ -9,7 +9,6 @@ export const verifyToken = (req, res, next) => {
     }
     jwt.verify(token, process.env.REACT_APP_JWT_SECRET, (err, decoded) => {
         if (err) {
-             console.log("err",err);
             return res.status(401).json({
                 message: "Token is not valid"
             })
@@ -21,7 +20,6 @@ export const verifyToken = (req, res, next) => {
 
 export const verifyUser=(req, res, next)=>{
     verifyToken(req,res,next,()=>{
-        console.log(req.user.id);
         if(req.user.id===req.params.id||req.user.role==="admin"){
             next();
         }

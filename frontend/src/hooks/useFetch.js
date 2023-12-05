@@ -11,7 +11,6 @@ const useFetch = (query) => {
     const fetchData = async () => {
       setLoading(true);
       try {
-          console.log("query");
         const res = await axios.get(BASE_URL + query);
         if (res.status === 200) {
           setData(res.data);

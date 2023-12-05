@@ -44,11 +44,11 @@ export const login = async (req, res) => {
                             userId: user._id,
                             email: user.email,
                             role: user.role
-                        }, process.env.REACT_APP_JWT_SECRET, { expiresIn: "10d" });
+                        }, process.env.REACT_APP_JWT_SECRET, { expiresIn: "1d" });
 
                         res.status(200).cookie("accessToken", token, {
                             httpOnly: true,
-                            expires: new Date(Date.now() + 10 * 24 * 60 * 60 * 1000),
+                            expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
                         }).json({
                             success: true,
                             message: "User logged in successfully",
@@ -134,7 +134,6 @@ export async function resetPassword(req, res) {
         if (!req.app.locals.resetSession) return res.status(400).send({ error: "Session expired" });
         const email = req.body.email;
         const password = req.body.password;
-        console.log(email, password);
         try {
             const decodedEmail = decodeURIComponent(email);
             User.findOne({ email: decodedEmail })

@@ -9,7 +9,6 @@ const OTP = () => {
   const [OTP, setOTP] = useState("");
   const OTPEmail = useAuthStore(state => state.auth.OTPEmail);
   const setotp = useAuthStore(state => state.setOTP)
-  console.log(OTPEmail);
   useEffect(() => {
     const fetchData = (async () => {
       try {
@@ -35,7 +34,6 @@ const OTP = () => {
     e.preventDefault();
     setotp(OTP);
     const res = await axios.get(`${BASE_URL}/verifyOTP`, { params: { code: OTP } });
-    console.log(res);
     navigate('/resetPassword');
   }
 

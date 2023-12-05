@@ -13,10 +13,8 @@ const Tours = () => {
   const [page, setpage] = useState(0);
   const tour = useFetch(`/getAlltours?page=${page}`);
   const { data } = tour;
-  console.log("Tours", data.tours);
   const count = useFetch(`/search/getTourCount`);
   const countData = count?.data?.count;
-  console.log("Countdata", countData);
   useEffect(() => {
     if (countData) {
       const pages = Math.ceil(countData/8);

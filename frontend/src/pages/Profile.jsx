@@ -21,7 +21,6 @@ const Profile = () => {
     const fetchData = (async () => {
       if (token) {
         try{
-          console.log("decode?.userId",decode?.userId)
           const res = await axios.get(`${BASE_URL}/userbooking/${decode?.userId}`, {
             headers: {
               Authorization: `Bearer ${token}`
@@ -31,11 +30,9 @@ const Profile = () => {
           setisbooking(true);
           setBookings(res?.data?.data);
           if(Bookings.length === 0) setisbooking(false);
-          console.log("bookings", res?.data?.data);
         }
         catch(err){
           setisbooking(false);
-          console.log("err",err);
         }
       }
     })
@@ -51,7 +48,6 @@ const Profile = () => {
           },
           "Content-type": "Application/json"
         });
-        console.log("profile", res);
         setprofile(res?.data?.data?.profile || "");
         setfirstName(res?.data?.data?.firstName || "");
         setlastName(res?.data?.data?.lastName || "");
@@ -95,7 +91,6 @@ const Profile = () => {
         },
         "Content-type": "Application/json"
       });
-      console.log("update", res);
       if (res.status === 200) {
         alert("User updated successfully");
         window.location.reload();

@@ -30,7 +30,6 @@ const ConfirmEmail = () => {
     const code = confirmationCode;
     const res = await axios.get(`${BASE_URL}/verifyOTP`, { params: { code: code } });
     if (res.status === 200) {
-      console.log("Filled Email", UserEmail);
       const response = await axios.put(`${BASE_URL}/confirmEmail`, { email: UserEmail });
       if (response.status === 200) {
         alert("Email Verified Successfully");
@@ -38,7 +37,6 @@ const ConfirmEmail = () => {
       }
     }
     else {
-      console.log("Response", res);
       alert("Invalid OTP");
     }
   };

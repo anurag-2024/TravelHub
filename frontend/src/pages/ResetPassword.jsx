@@ -16,7 +16,6 @@ const ResetPassword = () => {
             alert("Password and Confirm Password does not match");
         }
         else{
-            console.log(encodedEmail,password);
             const res=await axios.put(`${BASE_URL}/resetPassword`,{email:encodedEmail,password})
             if(res.status===200){
                 navigate("/login");

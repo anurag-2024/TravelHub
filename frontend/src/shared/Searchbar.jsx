@@ -19,7 +19,6 @@ const Searchbar = () => {
             var res;
             try{
                 res=await axios(BASE_URL+`/search/getTourBySearch?city=${location}&distance=${distance}&maxGroupSize=${maxGroupSize}`);
-                console.log("Res",res);
                 if(res?.status!==200){
                     alert("Something went Wrong");
                 }

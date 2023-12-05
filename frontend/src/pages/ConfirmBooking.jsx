@@ -44,7 +44,6 @@ const ConfirmBooking = () => {
                         subject: "Booking Confirmation",
                         email: res?.data?.userEmail,
                     };
-                    console.log(mailData);
                     const encodedEmail = encodeURIComponent(mailData?.email);
                     await axios.post(`${BASE_URL}/registerMail`, { username: mailData?.username, email: encodedEmail, text: mailData?.text, subject: mailData?.subject });
                 }

@@ -16,7 +16,6 @@ export const pendingBooking=async(req,res)=>{
         });
         return res.status(201).json(newBooking);
     } catch (error) {
-        console.error(error);
         return res.status(500).json({ error: 'Internal Server Error' });
     }
 }
@@ -34,7 +33,6 @@ export const confirmBooking=async(req,res)=>{
         }
         return res.status(200).json(updatedBooking);
     } catch (error) {
-        console.error(error);
         return res.status(500).json({ error: 'Internal Server Error' });
     }
 }

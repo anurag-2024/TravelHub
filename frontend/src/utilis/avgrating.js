@@ -5,7 +5,6 @@ const calculateavgRating = reviews=>{
     ?"":totalRating===1
     ?totalRating
     :(totalRating/reviews?.length).toFixed(1);
-    // console.log(totalRating); 
     return (
         {totalRating,
         avgRating}

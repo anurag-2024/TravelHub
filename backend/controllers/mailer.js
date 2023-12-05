@@ -3,7 +3,6 @@ import Mailgen from "mailgen";
 
 
 const sendMail = (req, res) => {
-    console.log("email",process.env.REACT_APP_EMAIL)
     var {username,text,subject}=req.body;
     var decodedEmail = decodeURIComponent(req.body.email);
     var email=decodedEmail||email;

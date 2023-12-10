@@ -91,21 +91,21 @@ const Footer = () => {
                       <span><i className="ri-map-pin-line"></i></span>
                       Address:
                     </h6>
-                    <p className='mb-0'>Raebareli,Uttar Pradesh,India</p>
+                    <p className='mb-0'>Uttar Pradesh,India</p>
                   </ListGroupItem>
                   <ListGroupItem className='ps-0 border-0 d-flex align-items-center gap-3'>
                     <h6 className='mb-0 d-flex align-items-center gap-2'>
                       <span><i className="ri-mail-line"></i></span>
                       Email:
                     </h6>
-                    <p className='mb-0'>anuragpatel20june@gmail.com</p>
+                    <p className='mb-0'>anuragpatelxxxxxx@gmail.com</p>
                   </ListGroupItem>
                   <ListGroupItem className='ps-0 border-0 d-flex align-items-center gap-3'>
                     <h6 className='mb-0 d-flex align-items-center gap-2'>
                       <span><i className="ri-phone-fill"></i></span>
                       Phone:
                     </h6>
-                    <p className='mb-0'>+91 8090892885</p>
+                    <p className='mb-0'>+91 8090xxxxxx</p>
                   </ListGroupItem>
             </ListGroup>
           </Col>

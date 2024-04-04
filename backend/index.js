@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors';
 import connect from './database/connect.js';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
